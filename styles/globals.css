@@ -4,6 +4,29 @@
 
 @layer components{
     .hoverEffect{
-        @apply cursor-pointer hover:bg-gray-200 rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3
+        @apply cursor-pointer hover:bg-gray-200 rounded-full w-[52px] xl:w-auto h-[52px] xl:h-auto xl:p-3 transition duration-100 ease-out
     }
 }
+
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(14, 165, 253);
+    border-radius: 30px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgb(8, 160, 248);
+  }
