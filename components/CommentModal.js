@@ -33,6 +33,7 @@ export const CommentModal = () => {
             username: session.user.username,
             userImg: session.user.image,
             timestamp: serverTimestamp(),
+            userId: session.user.uid,
         })
 
         setOpen(false);

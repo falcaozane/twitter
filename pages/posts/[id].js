@@ -3,14 +3,15 @@ import { CommentModal } from '@/components/CommentModal'
 import { SparklesIcon } from "@heroicons/react/24/outline"
 import Sidebar from '@/components/Sidebar'
 import Widgets from '@/components/Widgets'
+import Comment from '@/components/Comment'
 import Post from '@/components/Post'
 import { ArrowLeftIcon } from '@heroicons/react/24/outline'
 import { Inter } from 'next/font/google'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { db } from '@/firebase'
-import { Snapshot } from 'recoil'
+
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,9 +19,23 @@ const inter = Inter({ subsets: ['latin'] })
 export default function PostPage({ newsResults, randomUsersResult }) {
     const router = useRouter();
     const { id } = router.query;
-    const [post, setPost] = useState()
+    const [post, setPost] = useState();
+    const [comments, setComments] = useState([]);
 
-    useEffect(()=>onSnapshot(doc(db,"posts", id), (snapshot) => setPost(snapshot)),[db, id])
+    useEffect(
+        ()=>onSnapshot(doc(db,"posts", id), (snapshot) => setPost(snapshot)),
+        [db, id]
+    );
+
+    useEffect(()=>{
+        onSnapshot(
+            query(
+                collection(db, "posts", id,"comments"), 
+                orderBy("timestamp","desc")
+            ),
+            (snapshot)=>setComments(snapshot.docs)
+        );
+    }, [db, id]);
 
   return (
     <main className='flex min-h-screen  mx-auto'>
@@ -38,7 +53,22 @@ export default function PostPage({ newsResults, randomUsersResult }) {
                 <SparklesIcon className="h-5" />
             </div>
         </div>
-        <Post id={id} post={post} />   
+        <Post id={id} post={post} />
+        {
+                comments.length > 0 && (
+                <div className=''>
+                    {comments.map((comment)=>(
+                        <Comment 
+                            key={comment.id} 
+                            commentId={comment.id}
+                            originalPostId={id}
+                            comment={comment.data()} 
+                        />
+                    ))
+                }
+                </div>
+            )
+        }
     </div>
 
       {/* Widgets */}
