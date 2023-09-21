@@ -81,7 +81,7 @@ export default function Post({ post, id }) {
     <div className="flex p-1 md:p-1.5 lg:p-3 cursor-pointer border-b border-gray-200">
       {/* user image */}
       <img 
-        className="h-10 w-10 cursor-pointer hover:brightness-95 border-2 hover:border-blue-400 lg:h-11 lg:w-11 rounded-full mr-2 lg:mr-4" 
+        className="h-10 w-10 cursor-pointer hover:brightness-95 border-2 hover:border-blue-400 lg:h-11 lg:w-11 rounded-full mr-1 lg:mr-3" 
         src={post?.data()?.userImg} 
         alt="user-img" 
       />
@@ -91,11 +91,11 @@ export default function Post({ post, id }) {
 
         <div className="flex items-center justify-between">
             {/*post user-info */}
-            <div className="flex items-center space-x-1 whitespace-nowrap">
+            <div className="flex items-center lg:space-x-4 space-x-2 whitespace-nowrap">
               <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">{post?.data()?.name}</h4>
-              <span className="text-sm sm:text-[15px]">@{post?.data()?.username} - </span>
+              <span className="text-sm sm:text-[15px]">@{post?.data()?.username}</span>
               <span className="text-sm sm:text-[15px] hover:underline">
-                  <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
+                  -<Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
               </span>
             </div>
             {/* dot icon */}
