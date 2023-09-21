@@ -7,7 +7,7 @@ import { useSession, signIn, signOut } from 'next-auth/react'
 export default function Sidebar() {
   const {data: session} = useSession();
   return (
-    <div className='hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-24'>
+    <div className='hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-16'>
         {/* LOGO */}
         <div className='hoverEffect p-0 hover:bg-blue-100 xl:p-2'>
             <Image src={Twitter} height={50} width={50}></Image>

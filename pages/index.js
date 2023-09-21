@@ -1,4 +1,5 @@
 
+import { CommentModal } from '@/components/CommentModal'
 import Feed from '@/components/Feed'
 import Sidebar from '@/components/Sidebar'
 import Widgets from '@/components/Widgets'
@@ -20,6 +21,7 @@ export default function Home({ newsResults, randomUsersResult }) {
       <Widgets newsResults={newsResults.articles} randomUsersResult={randomUsersResult.results}/>
       
       {/* Modals */}
+      <CommentModal />
     </main>
   )
 }

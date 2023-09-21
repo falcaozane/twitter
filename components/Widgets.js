@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 
+
 export default function Widgets({ newsResults, randomUsersResult}) {
   const [articleNum, setArticleNum] = useState(3);
   const [users, setUsers] = useState(3);
