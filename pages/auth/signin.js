@@ -9,7 +9,7 @@ export default function signin({ providers }) {
 
       <div className="">
         {Object.values(providers).map((provider) => (
-          <div className="flex flex-col items-center" key={provider.id}>
+          <div className="flex flex-col items-center" key={provider.name}>
             <Image className="w-36 h-36 object-cover" src={Twitter} alt="twitter-png" />
             <p className="text-center text-sm italic my-10">This app is created for learning purposes</p>
             <button onClick={() => signIn(provider.id, { callbackUrl:"/"})} className="bg-blue-500 rounded-full p-3 text-white hover:bg-blue-600">

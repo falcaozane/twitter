@@ -11,6 +11,7 @@ import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { db } from '@/firebase'
+import { AnimatePresence, motion } from "framer-motion"
 
 
 
@@ -57,15 +58,19 @@ export default function PostPage({ newsResults, randomUsersResult }) {
         {
                 comments.length > 0 && (
                 <div className=''>
+                    <AnimatePresence>
                     {comments.map((comment)=>(
-                        <Comment 
+                        <motion.div key={comment.id} initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}} transition={{duration: 2}}>
+                            <Comment 
                             key={comment.id} 
                             commentId={comment.id}
                             originalPostId={id}
                             comment={comment.data()} 
                         />
-                    ))
-                }
+                        </motion.div>
+                        ))
+                    }
+                    </AnimatePresence>
                 </div>
             )
         }
