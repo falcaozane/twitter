@@ -11,6 +11,10 @@
 
 /* width */
 ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar:hover {
     width: 8px;
   }
   
@@ -22,11 +26,11 @@
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
-    background: rgb(14, 165, 253);
+    background: rgb(208, 215, 218);
     border-radius: 30px;
   }
   
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
-    background: rgb(8, 160, 248);
+    background: rgb(179, 183, 186);
   }
