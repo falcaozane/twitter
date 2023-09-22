@@ -63,7 +63,7 @@ export default function Comment({ comment, commentId, originalPostId }) {
 
 
   return (
-    <div className="flex p-3 cursor-pointer border-b border-gray-200 lg:pl-20 md:pl-10">
+    <div className="flex p-3 cursor-pointer border-b border-gray-200 lg:pl-16 md:pl-1">
       {/* user image */}
       <img 
         className="h-10 w-10 cursor-pointer hover:brightness-95 border-2 hover:border-blue-400 lg:h-11 lg:w-11 rounded-full mr-2 lg:mr-4" 
@@ -76,11 +76,11 @@ export default function Comment({ comment, commentId, originalPostId }) {
 
         <div className="flex items-center justify-between">
             {/*post user-info */}
-            <div className="flex items-center space-x-1 whitespace-nowrap">
+            <div className="flex items-center lg:space-x-5 space-x-1 whitespace-nowrap">
               <h4 className="font-bold text-[15px] sm:text-[16px] hover:underline">{comment?.name}</h4>
-              <span className="text-sm sm:text-[15px]">@{comment?.username} - </span>
-              <span className="text-sm sm:text-[15px] hover:underline">
-                  <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
+              <span className="text-sm sm:text-[15px] hover:underline">@{comment?.username}</span>
+              <span className="text-sm sm:text-[15px] ">
+                  -<Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
               </span>
             </div>
             {/* dot icon */}
@@ -89,7 +89,7 @@ export default function Comment({ comment, commentId, originalPostId }) {
           {/* post text */}
             <p className="text-gray-800 text-[15px] sm:text-[16px] mb-2">{comment?.comment}</p>
           {/* icons */}
-          <div className="flex justify-between text-gray-500 p-2">
+          <div className="flex justify-between text-gray-500 p-1">
               <div className="flex items-center select-none">
                 <ChatBubbleOvalLeftEllipsisIcon 
                   onClick={

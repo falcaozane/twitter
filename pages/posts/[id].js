@@ -44,9 +44,9 @@ export default function PostPage({ newsResults, randomUsersResult }) {
       <Sidebar />
 
       {/* Feed */}
-      <div className="xl:ml-[325px] border-l border-r border-gray-200 xl:min-w-[576px] sm:ml-[73px] flex-grow max-w-xl">
+      <div className="lg:ml-[315px] sm:ml-[73px] border-l border-r border-gray-200 xl:min-w-[590px] flex-grow max-w-xl">
         <div className="flex  py-2 px-3 sticky top-0 z-50 bg-white border-b border-gray-200">
-            <div onClick={()=> router.push("/")} className='hoverEffect items-center'>
+            <div onClick={()=> router.push("/")} className='hoverEffect items-center mt-3 lg:mt-0'>
                 <ArrowLeftIcon className='h-4' />
             </div>
             <h2 className="text-lg sm:text-xl font-bold cursor-pointer mt-1 items-center">Tweet</h2>
