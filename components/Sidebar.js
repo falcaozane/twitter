@@ -11,7 +11,7 @@ export default function Sidebar() {
   return (
     <div className='hidden sm:flex flex-col p-2 xl:items-start fixed h-full xl:ml-14'>
         {/* LOGO */}
-        <div onClick={router.push("/")} className='hoverEffect p-0 hover:bg-blue-100 xl:p-2'>
+        <div onClick={()=> router.push("/")} className='hoverEffect p-0 hover:bg-blue-100 xl:p-2'>
             <Image src={Twitter} height={45} width={45}></Image>
         </div>
 
